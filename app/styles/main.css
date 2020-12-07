@@ -1,3 +1,22 @@
-h1{
+body{
+	padding: .5em 1em;
+	background: black;
+	color: #81bcf7;
+	font-family: monaco,Consolas,Lucida Console,monospace;
+}
+section{
+	border: 1px solid white;
+}
+section div{
+	margin: .5em 1em;
+}
+#title{
 	text-align: center;
+}
+label{
+	margin: 1em;
+	display: block;
+}
+.opinionSlider{
+	width: 300px;
 }

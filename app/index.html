@@ -2,25 +2,33 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Valid HTML Template</title>
+	<title>The Geek QR Code</title>
 	<style>
-		body{
-			background: #81bcf7;
-			color: #123456;
-		}
 	</style>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
 	<link rel="stylesheet" href="styles/main.css" />
 </head>
 <body>
-	<h1>Web App Template</h1>
-	<p>The scaffolding tools have become unusable, so I'm building my own starting template.</p>
-	<div>
-		<ul>
-			<li>build tool: Grunt</li>
-			<li>dev server: grunt serve</li>
-			<li>npm and bower for packages</li>
-		</ul>
-	</div>
+	<h1 id="title">The Geek QR Code</h1>
+	<section id="classification">
+		<h2>Classification</h2>
+		<img id="profilePic" style="display:none" />
+	</section>
+	<section id="personalTraits">
+		<h2>Personal</h2>
+	</section>
+	<section id="computerTraits">
+		<h2>Computers</h2>
+	</section>
+	<section id="hobbyTraits">
+		<h2>Hobbies</h2>
+	</section>
+	<section id="politicalTraits">
+		<h2>Politics</h2>
+	</section>
+	<script src="scripts/GeekTrait.js"></script>
+	<script src="scripts/types.js"></script>
+	<script src="scripts/traits.js"></script>
 	<script src="scripts/main.js"></script>
 </body>
 </html>
