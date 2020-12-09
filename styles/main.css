@@ -4,6 +4,10 @@ body{
 	color: #81bcf7;
 	font-family: monaco,Consolas,Lucida Console,monospace;
 }
+a:link,
+a:visited{
+	color: #81bcf7;
+}
 section{
 	border: 1px solid white;
 }

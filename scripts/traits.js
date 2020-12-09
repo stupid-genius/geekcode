@@ -147,11 +147,11 @@ const Traits = {
 		section: 'politicalTraits',
 		type: 'opinion',
 		value: {
-			100: ['Anonymous'],
-			80: ['EFF member'],
+			100: ['safety > privacy'],
+			80: ['I have nothing to hide'],
 			60: ['passive concern for privacy'],
-			40: ['safety > privacy'],
-			20: ['I have nothing to hide']
+			40: ['EFF member'],
+			20: ['We are Anonymous.  Expect us']
 		}
 	},
 	q: {
