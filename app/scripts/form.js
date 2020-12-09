@@ -5,7 +5,6 @@ class JQSlider extends React.Component{
 		super(props);
 	}
 	componentDidMount(){
-		
 		$(this.refs.$elf).slider({
 			change: (event, ui) => this.props.onChange({[this.props.id]: ui.value}),
 			slide: (event, ui) => $(this.refs.handle).text(ui.value)
@@ -60,19 +59,21 @@ class Questionaire extends React.Component{
 		super(props);
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.state = {};
 	}
 
 	render(){
 		const gTypes = Object.keys(types).map((e, i) => {
 			return createElem('option', {value: e}, types[e]);
 		});
-		const classification = createElem('select', {onChange: this.handleChange}, ...gTypes);
+		const classification = createElem('select', {onChange: event => this.handleChange({type: event.target.value})}, ...gTypes);
+		const avatar = createElem('input', {onChange: event => this.handleChange({avatar: event.target.value})});
 		const traits = Object.keys(Traits).map(e => {
 			const trait = {key: e, id: e, ...Traits[e], onChange: this.handleChange};
 			return createElem(Question, trait);
 		});
 		const buttonElem = createElem('input', {type: 'submit', value: 'Get your code'});
-		return createElem('form', {onSubmit: this.handleSubmit}, classification, traits, buttonElem);
+		return createElem('form', {onSubmit: this.handleSubmit}, classification, avatar, traits, buttonElem);
 	}
 
 	handleChange(event){
@@ -81,8 +82,22 @@ class Questionaire extends React.Component{
 	}
 	handleSubmit(event){
 		event.preventDefault();
-		console.log('submit clicked');
-		console.log(this.state);
+		let type = '';
+		const traits = Object.entries(this.state).reduce((acc, cur) => {
+			switch(cur[0]){
+				case 'type':
+					type = cur[1]+type;
+					break;
+				case 'avatar':
+					type += `(${cur[1]});`;
+					break;
+				default:
+					acc+=`${cur[0]}${cur[1]};`;
+			}
+			return acc;
+		}, '');
+		console.log(type+traits);
+		window.location.href = `/?gc=${type+traits}`;
 	}
 }
 
